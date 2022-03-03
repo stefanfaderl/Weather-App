@@ -1,19 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
-
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 .error-snackbar {
-  background: #d9534f; /* DC3545 */ /* F8D7DA */ /* #d9534f */
+  background: #d9534f;
+  /* DC3545 */
+  /* F8D7DA */
+  /* #d9534f */
   color: white;
-  button {
-    margin: 10px;
-    background-color: #f7f7f7;
-    color: #292b2c;
-  }
 }
+
+.error-snackbar button {
+  margin: 10px;
+  background-color: #f7f7f7;
+  color: #292b2c;
+}
+/*# sourceMappingURL=styles.css.map */
