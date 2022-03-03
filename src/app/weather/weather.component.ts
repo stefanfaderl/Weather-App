@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MyDataService } from '../services/my-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.scss']
+  styleUrls: ['./weather.component.scss'],
+  providers: [MyDataService]
 })
 export class WeatherComponent implements OnInit {
-
+  user: { name: string };
+  isLoggedIn = false;
 
   constructor(
     private myDataService: MyDataService,
@@ -16,6 +18,7 @@ export class WeatherComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.user = this.myDataService.user;
   }
 
   myData: any;
@@ -28,12 +31,13 @@ export class WeatherComponent implements OnInit {
   isDay: boolean;
   timeData: any;
   country: string;
-  myTime: string | number | Date;
+  currentTime: string | number | Date;
 
   fetchData() {
     const locationName = this.locationName;
     this.isFetching = true;
     this.myDataService.fetchData(locationName).subscribe((data) => {
+      this.isFetching = false;
       this.myData = data;
       this.sunriseTime = new Date(this.myData.sys.sunrise * 1000 + (this.myData.timezone * 1000 - 3600000));
       this.sunsetTimeToShow = new Date(this.myData.sys.sunset * 1000 + (this.myData.timezone * 1000 - 3600000));
@@ -41,10 +45,8 @@ export class WeatherComponent implements OnInit {
       this.myData.sunset_Time = this.sunsetTime.toLocaleTimeString();
       let currentDate = new Date();
       this.myData.isDay = (currentDate.getTime() < this.sunsetTime.getTime());
-      this.isFetching = false;
       /* console.log(this.myData.timezone); */
       this.country = this.myData.sys.country;
-
     }, error => {
       this.isFetching = false;
       this.openSnackbar(error.status, error.name, error.statusText);
@@ -55,9 +57,10 @@ export class WeatherComponent implements OnInit {
   getTime() {
     this.isFetching = true;
     this.myDataService.getTime(this.locationName, this.country).subscribe((data) => {
+      this.isFetching = false;
       this.timeData = data;
-      this.myTime = this.timeData.date_time;
-      /*       console.log(this.myTime);
+      this.currentTime = this.timeData.date_time;
+      /*       console.log(this.currentTime);
             console.log(this.myData2.timezone); */
     }
       , error => {
