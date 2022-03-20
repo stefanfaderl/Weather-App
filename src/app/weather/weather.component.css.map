@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,iCAAiC;CAC1C;;AAED,AAAA,KAAK,CAAC;EACJ,MAAM,EAAE,iCAAiC;CAC1C",
     "sources": [
         "weather.component.scss"
     ],

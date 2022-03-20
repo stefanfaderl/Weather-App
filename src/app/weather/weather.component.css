@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=weather.component.css.map */
+.sun {
+  -webkit-filter: drop-shadow(5px 5px 10px #fee45a);
+          filter: drop-shadow(5px 5px 10px #fee45a);
+}
+
+.moon {
+  -webkit-filter: drop-shadow(5px 5px 10px #4843a7);
+          filter: drop-shadow(5px 5px 10px #4843a7);
+}
+/*# sourceMappingURL=weather.component.css.map */
