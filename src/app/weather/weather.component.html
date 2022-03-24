@@ -1,8 +1,9 @@
 <article class="input-group mb-4">
   <input [(ngModel)]="locationName" type="text" class="form-control fs-5" placeholder="Enter your location..."
     aria-label="Location" aria-describedby="button-addon2">
-  <button class="btn btn-primary fs-5" type="button" id="button-addon2" (click)="fetchData()"
-    (click)="getTime()">Search</button>
+  <button class="btn btn-primary fs-5" type="button" id="button-addon2" (click)="fetchData()" (click)="getTime()">
+    Search
+  </button>
 </article>
 
 <article *ngIf="myData && !isFetching" class="d-grid gap-1">
