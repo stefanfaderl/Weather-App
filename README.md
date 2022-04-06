@@ -1,3 +1,6 @@
+# Intro
+The weather app gets all the important data from API's. It was exciting to fetch so much information and then show and style the most important. I also used a snackbar from Angular Material to show a catched error message. I used pipes to transform the data output and added a progress spinner while fetching data. Side note: Sun or moon represent the current daytime of the entered location. 
+
 # WeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
